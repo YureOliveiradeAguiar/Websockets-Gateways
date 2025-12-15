@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
 import { Item } from "../models/item.model";
 import { ItemsService } from "../services/item.service";
@@ -8,17 +9,26 @@ import { ItemsSocketService } from "../services/items-socket.service";
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrl: './home.scss',
-  imports: [],
+  imports: [ReactiveFormsModule],
 })
 export class Home implements OnInit {
+
+  itemForm!: FormGroup;
+
   items: Item[] = [];
 
   constructor(
     private itemsService: ItemsService, // HTTP
-    private socketService: ItemsSocketService // WebSocket
+    private socketService: ItemsSocketService, // WebSocket
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit() {
+    this.itemForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+    });
+
     // Loads initial state via HTTP
     this.itemsService.getAll().subscribe((items) => {
       this.items = items;
@@ -40,5 +50,14 @@ export class Home implements OnInit {
       this.items = this.items.filter(i => i.id !== id);
     });
   }
-}
 
+  submit() {
+    if (this.itemForm.invalid) return;
+
+    this.itemsService.create(this.itemForm.value).subscribe({
+      next: () => {
+        this.itemForm.reset();
+      },
+    });
+  }
+}
