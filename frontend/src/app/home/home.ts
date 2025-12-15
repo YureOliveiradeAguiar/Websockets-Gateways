@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
+import { IconDelete } from "../../assets/icons/delete.icon";
 import { Item } from "../models/item.model";
 import { ItemsService } from "../services/item.service";
 import { ItemsSocketService } from "../services/items-socket.service";
@@ -9,7 +10,7 @@ import { ItemsSocketService } from "../services/items-socket.service";
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrl: './home.scss',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IconDelete],
 })
 export class Home implements OnInit {
 

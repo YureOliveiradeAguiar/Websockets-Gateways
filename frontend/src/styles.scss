@@ -1,10 +1,10 @@
 //=================Font insertion=================
-//@font-face {
-//  font-family: 'Roboto';
-//  src: url('/assets/fonts/roboto-variable-font.ttf') format('truetype');
-//  font-weight: 100 900;
-//  font-style: normal;
-//}
+@font-face {
+  font-family: 'OpenSans';
+  src: url('assets/fonts/open-sans-variable-font.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
 
 //====================Global styles==================
 * {
@@ -15,7 +15,7 @@
 }
 
 body {
-  //font-family: 'Roboto';
+  font-family: 'OpenSans';
   background-color: #f5f5f5;
   color: #333;
   cursor: default;
