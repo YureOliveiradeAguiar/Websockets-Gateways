@@ -10,15 +10,11 @@ import { ItemsModule } from "./items/items.module";
   providers: [AppService],
   imports: [ItemsModule,
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'nest_training',
+      type: 'sqlite',
+      database: 'db.sqlite',
       autoLoadEntities: true,
-      synchronize: true // TODO dev only
+      synchronize: true, // TODO dev only
     }),
   ],
 })
-export class AppModule { }
+export class AppModule {}
