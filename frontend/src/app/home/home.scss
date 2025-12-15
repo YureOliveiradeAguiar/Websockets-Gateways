@@ -1,0 +1,23 @@
+.page {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.card-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  margin: 0.4rem 0.2rem;
+}
+.card {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.5rem 2rem;
+  margin: 0.1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.card-name {
+  font-weight: 700;
+}
