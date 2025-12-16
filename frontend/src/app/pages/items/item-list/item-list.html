@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <section class="list">
+    @for (item of paginatedItems; track item.id) {
+    <div class="card">
+      <span class="card-name">{{item.name}}</span>
+      <p class="card-description">{{item.description || "-"}}</p>
+      <div class="icon-wrapper">
+        <icon-edit size="1.4rem"/>
+      </div>
+    </div>
+    }
+    @if (items.length === 0) {
+    <span class="list-message">No items registered</span>
+    }
+  </section>
+
+  <section class="pagination">
+    <div class="helper">
+      <span>{{`${currentPage}/${totalPages}`}}</span>
+      <icon-open-book size="1.2rem"/>
+    </div>
+    <div class="buttons">
+      <button (click)="goToPage(1)" [disabled]="currentPage === 1">
+        <icon-arrow variant="first-page" />
+      </button>
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+        <icon-arrow variant="left" />
+      </button>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        <icon-arrow />
+      </button>
+      <button (click)="goToPage(totalPages)" [disabled]="currentPage === totalPages">
+        <icon-arrow variant="last-page" />
+      </button>
+    </div>
+  </section>
+</div>

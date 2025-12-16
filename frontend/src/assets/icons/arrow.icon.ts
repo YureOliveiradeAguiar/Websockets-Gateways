@@ -10,7 +10,7 @@ export const ArrowVariants = {
 export type Variant = keyof typeof ArrowVariants;
 
 @Component({
-  selector: 'icon-delete',
+  selector: 'icon-arrow',
   template: `
     <svg
 			[attr.width]="size"
@@ -28,7 +28,7 @@ export type Variant = keyof typeof ArrowVariants;
     }
   `]
 })
-export class IconDelete {
+export class IconArrow {
   @Input()
   size = '24'
 

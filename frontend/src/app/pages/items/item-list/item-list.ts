@@ -1,18 +1,19 @@
 import { Component, Input } from "@angular/core";
-
-import { IconEdit } from "../../../assets/icons/edit.icon";
-import { Item } from "../../models/item.model";
+import { IconArrow } from "@assets/icons/arrow.icon";
+import { IconEdit } from "@assets/icons/edit.icon";
+import { IconOpenBook } from "@assets/icons/open-book.icon";
+import { Item } from "@models/item.model";
 
 @Component({
-  selector: 'app-item-list',
-  imports: [IconEdit],
+  selector: 'item-list',
+  imports: [IconEdit, IconArrow, IconOpenBook],
   templateUrl: './item-list.html',
   styleUrl: './item-list.scss',
 })
 export class ItemList {
 
   @Input()
-  items!: Item[];
+  items: Item[] = [];
 
   //=====================Pagination========================
   currentPage = 1;
@@ -20,7 +21,7 @@ export class ItemList {
   pageSize = 9;
 
   get totalPages(): number {
-    return Math.ceil(this.items.length / this.pageSize);
+    return Math.max(1, Math.ceil(this.items.length / this.pageSize));
   }
 
   get paginatedItems() {

@@ -1,17 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { RouterLink } from "@angular/router";
+import { Item } from "@models/item.model";
+import { ItemsService } from "@services/item.service";
+import { ItemsSocketService } from "@services/items-socket.service";
 
-import { Item } from "../../models/item.model";
-import { ItemsService } from "../../services/item.service";
-import { ItemsSocketService } from "../../services/items-socket.service";
+import { ItemList } from "./item-list/item-list";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './item-form.html',
-  styleUrl: './item-form.scss',
-  imports: [ReactiveFormsModule],
+  selector: 'app-items',
+  templateUrl: './items.html',
+  styleUrl: './items.scss',
+  imports: [ReactiveFormsModule, ItemList, RouterLink],
 })
-export class ItemForm implements OnInit {
+export class Items implements OnInit {
 
   itemForm!: FormGroup;
 
@@ -21,7 +23,7 @@ export class ItemForm implements OnInit {
     private itemsService: ItemsService, // HTTP
     private socketService: ItemsSocketService, // WebSocket
     private formBuilder: FormBuilder,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.itemForm = this.formBuilder.group({
