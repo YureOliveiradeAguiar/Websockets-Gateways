@@ -1,2 +1,2 @@
 # my-project
-A test project about websockets and gateways
+A project study about websockets and gateways. Including CRUD with typeORM, list with pagination and animated input fields.
