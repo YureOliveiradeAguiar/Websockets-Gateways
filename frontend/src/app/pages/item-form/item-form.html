@@ -1,6 +1,11 @@
 <form [formGroup]="itemForm" (ngSubmit)="submit()" class="form">
   <div class="form-group">
-    <input id="name" formControlName="name" class="form-input"/>
+    <input
+      id="name"
+      formControlName="name"
+      class="form-input"
+      placeholder=""
+    />
     <label for="name" class="form-label">Name</label>
   </div>
 
@@ -9,6 +14,7 @@
       id="description"
       formControlName="description"
       class="form-input textarea"
+      placeholder=""
     ></textarea>
     <label for="description" class="form-label">Description</label>
   </div>
