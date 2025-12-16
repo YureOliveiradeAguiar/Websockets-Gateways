@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="list">
+    @for (item of paginatedItems; track item.id) {
+    <div class="card">
+      <span class="card-name">{{item.name}}</span>
+      <p class="card-description">{{item.description}}</p>
+      <div class="icon-wrapper">
+        <icon-edit />
+      </div>
+    </div>
+    }
+    @if(items.length === 0) {
+    <span>No items registered</span>
+    }
+  </div>
+  <div class="pagination">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+      Prev
+    </button>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
+</div>

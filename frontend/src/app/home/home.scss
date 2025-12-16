@@ -3,54 +3,25 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  padding: 4rem;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+.list-container {
+  height: 550px;
+  max-width: 320px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin: 0.2rem;
-  gap: 0.2rem;
-}
-
-.card-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 300px;
-  margin: 0.4rem 0.2rem;
-}
-
-.card {
-  position: relative;
+.button-section {
   display: inline-flex;
-  flex-direction: column;
-  padding: 0.5rem 2rem;
-  margin: 0.1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-}
-
-.card-name {
-  font-weight: 700;
-}
-
-.icon-wrapper {
-  position: absolute;
-  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  top: 0.2rem;
-  right: 0.2rem;
-  padding: 0.1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  color: rgb(231, 0, 0);
+  padding: 0.6rem 0;
+  width: 100%;
+  max-width: 320px;
+}
+
+.button-section button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #666;
 }

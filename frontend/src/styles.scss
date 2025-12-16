@@ -12,11 +12,38 @@
   margin: 0;
   padding: 0;
   line-height: 1;
+  font-family: 'OpenSans';
 }
 
 body {
-  font-family: 'OpenSans';
   background-color: #f5f5f5;
   color: #333;
   cursor: default;
+}
+
+button {
+  cursor: pointer;
+}
+
+//==============The Scrollbar=================
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
