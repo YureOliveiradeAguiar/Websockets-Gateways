@@ -17,12 +17,16 @@ import { Toggle } from "src/app/components/toggle/toggle";
   imports: [ReactiveFormsModule, RouterLink, SegmentedControl, Toggle],
 })
 export class ItemForm implements OnInit {
-  options: SegmentedControlOption[]= [
-    {label:"abracadabra", value: 69},
-    {label:"simSalomão", value: 420},
-    {label:"teste", value: 123}
+
+  itemQualities: SegmentedControlOption[]= [
+    {label:"low", value: "low"},
+    {label:"medium", value: "medium"},
+    {label:"high", value: "high"}
   ];
-  selectedOption = 123;
+
+  itemQuality = "low";
+
+  isPremium: boolean = false;
 
   itemForm!: FormGroup;
 

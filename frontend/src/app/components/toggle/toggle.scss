@@ -1,6 +1,6 @@
-$width: 50px;
-$height: 28px;
-$thumb-size: 24px;
+$width: 2.8rem;
+$height: 1.5rem;
+$thumb-size: 1.2rem;
 $track-off: #ccc;
 $track-on: #2196F3;
 $thumb-color: #fff;
@@ -39,21 +39,22 @@ $thumb-color: #fff;
 
 .toggle-thumb {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 50%;
+  left: 0.2rem;
   width: $thumb-size;
   height: $thumb-size;
   background-color: $thumb-color;
   border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
 }
 
 .toggle-input:checked+.toggle-track {
   background-color: $track-on;
 
   .toggle-thumb {
-    transform: translateX($width - $thumb-size - 4px);
+    transform: translateX($width - $thumb-size - 0.4rem) translateY(-50%);
   }
 }
 

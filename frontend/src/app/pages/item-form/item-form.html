@@ -10,15 +10,16 @@
   </div>
 
   <segmented-control
-    [options]="options"
-    [value]="selectedOption"
-    (valueChanged)="selectedOption = $event"
+    [options]="itemQualities"
+    [value]="itemQuality"
+    (valueChanged)="itemQuality = $event"
   />
 
   <div class="form-group">
     <app-toggle
       label="Premium Features Enabling"
-      [checked]="false"
+      [checked]="isPremium"
+      (checkedChanged)="isPremium = $event"
       [disabled]="false">
     </app-toggle>
   </div>
@@ -38,3 +39,6 @@
     <button type="submit" [disabled]="itemForm.invalid">Register</button>
   </section>
 </form>
+
+<span>itemType: {{itemQuality}}</span>
+<span>isPremium: {{isPremium}}</span>

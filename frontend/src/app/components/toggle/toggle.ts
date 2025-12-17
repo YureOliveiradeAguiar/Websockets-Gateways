@@ -8,12 +8,17 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   styleUrls: ['./toggle.scss']
 })
 export class Toggle {
-  @Input() label: string = '';
-  @Input() checked: boolean = false;
-  @Input() disabled: boolean = false;
 
-  // Allows use of [(checked)] syntax
-  @Output() checkedChange = new EventEmitter<boolean>();
+  @Input()
+  label: string = '';
+
+  @Input()
+  checked: boolean = false;
+
+  @Input()
+  disabled: boolean = false;
+
+  @Output() checkedChanged = new EventEmitter<boolean>();
 
   onToggle(event: Event): void {
     if (this.disabled) {
@@ -24,6 +29,6 @@ export class Toggle {
     event.preventDefault();
 
     this.checked = !this.checked;
-    this.checkedChange.emit(this.checked);
+    this.checkedChanged.emit(this.checked);
   }
 }
