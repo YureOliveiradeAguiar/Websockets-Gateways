@@ -1,0 +1,13 @@
+<div class="snackbar" [ngClass]="type" [class.show]="isVisible">
+  <div class="sidebar"></div>
+
+  <div class="icon-wrapper">
+    <icon-x size="1rem"/>
+  </div>
+
+  <span class="message">{{ message }}</span>
+
+  <button (click)="close()">
+    <icon-x size="1.1rem"/>
+  </button>
+</div>

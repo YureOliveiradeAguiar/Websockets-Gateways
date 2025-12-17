@@ -8,6 +8,7 @@ import { ItemsSocketService } from "@services/items-socket.service";
 import {
   SegmentedControl, SegmentedControlOption
 } from "src/app/components/segmented-control/segmented-control";
+import { SnackbarService } from "src/app/components/snackbar/snackbar.service";
 import { Toggle } from "src/app/components/toggle/toggle";
 
 @Component({
@@ -36,6 +37,7 @@ export class ItemForm implements OnInit {
     private itemsService: ItemsService, // HTTP
     private socketService: ItemsSocketService, // WebSocket
     private formBuilder: FormBuilder,
+    private snackbar: SnackbarService
   ) { }
 
   ngOnInit() {
@@ -74,5 +76,9 @@ export class ItemForm implements OnInit {
         this.itemForm.reset();
       },
     });
+  }
+
+  test(): void {
+    this.snackbar.show("Data saved successfully", 'success', 20002222);
   }
 }
