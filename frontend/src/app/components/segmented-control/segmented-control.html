@@ -1,0 +1,29 @@
+<div>
+  <div
+    class="segmented-control"
+    [class.disabled]="disabled"
+  >
+    <div
+      class="thumb"
+      [class.no-transition]="isInitialRender"
+      [ngStyle]="thumbStyle"
+    ></div>
+
+    @for (option of options; track option.value){
+    <button
+      type="button"
+      #segmentButton
+      class="segment"
+      [class.active-text]="value === option.value"
+      [disabled]="disabled"
+      (click)="onOptionClick(option.value)"
+    >
+      {{ option.label }}
+    </button>
+    }
+
+
+  </div>
+
+  <p class="blank-message"></p>
+</div>

@@ -17,11 +17,10 @@ export const routes: Routes = [
         path: 'items/new',
         component: ItemForm
       },
+      { path: '', redirectTo: 'items', pathMatch: 'full' },
     ]
   },
   //=================================================
-
-  { path: '', redirectTo: 'items', pathMatch: 'full' },
 
   // Redirects any unknown path (404) back to home 404
   { path: '**', redirectTo: 'items' }

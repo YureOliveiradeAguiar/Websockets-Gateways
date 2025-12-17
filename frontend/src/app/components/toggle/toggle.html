@@ -1,0 +1,17 @@
+<label class="toggle-container" [class.disabled]="disabled">
+  <span class="toggle-label-text">{{ label }}</span>
+  <input
+    type="checkbox"
+    class="toggle-input"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="onToggle($event)"
+    role="switch"
+    [attr.aria-checked]="checked"
+    [attr.aria-label]="label"
+  />
+
+  <span class="toggle-track">
+    <span class="toggle-thumb"></span>
+  </span>
+</label>

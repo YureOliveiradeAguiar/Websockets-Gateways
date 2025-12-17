@@ -5,13 +5,24 @@ import { Item } from "@models/item.model";
 import { ItemsService } from "@services/item.service";
 import { ItemsSocketService } from "@services/items-socket.service";
 
+import {
+  SegmentedControl, SegmentedControlOption
+} from "src/app/components/segmented-control/segmented-control";
+import { Toggle } from "src/app/components/toggle/toggle";
+
 @Component({
   selector: 'item-form',
   templateUrl: './item-form.html',
   styleUrl: './item-form.scss',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, SegmentedControl, Toggle],
 })
 export class ItemForm implements OnInit {
+  options: SegmentedControlOption[]= [
+    {label:"abracadabra", value: 69},
+    {label:"simSalomão", value: 420},
+    {label:"teste", value: 123}
+  ];
+  selectedOption = 123;
 
   itemForm!: FormGroup;
 

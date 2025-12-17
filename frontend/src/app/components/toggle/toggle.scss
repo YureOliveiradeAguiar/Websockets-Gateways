@@ -1,0 +1,69 @@
+$width: 50px;
+$height: 28px;
+$thumb-size: 24px;
+$track-off: #ccc;
+$track-on: #2196F3;
+$thumb-color: #fff;
+
+.toggle-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  width: 90%;
+  margin: 0 5%;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.toggle-track {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+  background-color: $track-off;
+  border-radius: $height;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: $thumb-size;
+  height: $thumb-size;
+  background-color: $thumb-color;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-input:checked+.toggle-track {
+  background-color: $track-on;
+
+  .toggle-thumb {
+    transform: translateX($width - $thumb-size - 4px);
+  }
+}
+
+// Focus state for keyboard accessibility
+.toggle-input:focus-visible+.toggle-track {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.toggle-label-text {
+  font-family: sans-serif;
+  font-size: 16px;
+}
