@@ -1,3 +1,9 @@
+<button (click)="test('success')" style="margin-top: 25rem;">Test Snackbar</button>
+<button (click)="test('warning')">Test Snackbar</button>
+<button (click)="test('error')">Test Snackbar</button>
+<button (click)="test('info')">Test Snackbar</button>
+
+
 <form [formGroup]="itemForm" (ngSubmit)="submit()" class="form">
   <div class="form-group">
     <input
@@ -42,4 +48,3 @@
 
 <span>itemType: {{itemQuality}}</span>
 <span>isPremium: {{isPremium}}</span>
-<button (click)="test()">Test Snackbar</button>

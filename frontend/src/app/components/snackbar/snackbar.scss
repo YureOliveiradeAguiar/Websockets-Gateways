@@ -1,12 +1,12 @@
 :host {
   --darkGreen: #83C784;
   --lightGreen: #E6F4E7;
-  //--darkGreen: #83C784;
-  //--lightGreen: #83C784;
-  //--darkGreen: #83C784;
-  //--lightGreen: #83C784;
-  //--darkGreen: #83C784;
-  //--lightGreen: #83C784;
+  --darkOrange: #F7B84F;
+  --lightOrange: #FFF1DC;
+  --darkRed: #F49252;
+  --lightRed: #FFE6DF;
+  --darkBlue: #6AAFEF;
+  --lightBlue: #E0EEFB;
 }
 
 .snackbar {
@@ -15,16 +15,19 @@
   right: 2vw;
   transform: translateY(-1rem);
   max-width: 320px;
-  padding: 0.6rem 0.8rem;
+  padding: 0.6rem 2.4rem 0.6rem 0.8rem;
   border-radius: 4px;
-  font-weight: 700;
+
+  font-weight: 600;
+  color: #777;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   opacity: 0;
   transition: all 0.3s ease-in-out;
   z-index: 9999;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
   overflow: hidden;
 }
 
@@ -42,21 +45,18 @@
 }
 
 .icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  padding: 0.2rem;
-  margin-right: 0.5rem;
-  color: white;
+  margin-right: 0.4rem;
 }
 
 .message {
   font-size: 0.8rem;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 button {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -71,7 +71,7 @@ button {
     background-color: var(--darkGreen);
   }
   & .icon-wrapper {
-    background-color: var(--darkGreen);
+    color: var(--darkGreen);
   }
   & button {
     color: var(--darkGreen);
@@ -79,13 +79,43 @@ button {
 }
 
 .warning {
-  background-color: yellow;
+  background-color: var(--lightOrange);
+
+  & .sidebar {
+    background-color: var(--darkOrange);
+  }
+  & .icon-wrapper {
+    color: var(--darkOrange);
+  }
+  & button {
+    color: var(--darkOrange);
+  }
 }
 
 .error {
-  background-color: #f44336;
+  background-color: var(--lightRed);
+
+  & .sidebar {
+    background-color: var(--darkRed);
+  }
+  & .icon-wrapper {
+    color: var(--darkRed);
+  }
+  & button {
+    color: var(--darkRed);
+  }
 }
 
 .info {
-  background-color: #2196f3;
+  background-color: var(--lightBlue);
+
+  & .sidebar {
+    background-color: var(--darkBlue);
+  }
+  & .icon-wrapper {
+    color: var(--darkBlue);
+  }
+  & button {
+    color: var(--darkBlue);
+  }
 }

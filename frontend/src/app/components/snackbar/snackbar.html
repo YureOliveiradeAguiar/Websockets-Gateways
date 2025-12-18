@@ -2,12 +2,20 @@
   <div class="sidebar"></div>
 
   <div class="icon-wrapper">
-    <icon-x size="1rem"/>
+    <svg
+			width="1.7rem"
+			height="1.7rem"
+			viewBox="0 -960 960 960"
+			fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+      <path [attr.d]="iconPathD"/>
+    </svg>
   </div>
 
   <span class="message">{{ message }}</span>
 
   <button (click)="close()">
-    <icon-x size="1.1rem"/>
+    <icon-x size="1.2rem" variant="thick"/>
   </button>
 </div>

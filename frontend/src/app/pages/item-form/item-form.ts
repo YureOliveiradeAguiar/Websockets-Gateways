@@ -38,7 +38,7 @@ export class ItemForm implements OnInit {
     private socketService: ItemsSocketService, // WebSocket
     private formBuilder: FormBuilder,
     private snackbar: SnackbarService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.itemForm = this.formBuilder.group({
@@ -78,7 +78,7 @@ export class ItemForm implements OnInit {
     });
   }
 
-  test(): void {
-    this.snackbar.show("Data saved successfully", 'success', 20002222);
+  test(type: 'success' | 'warning' | 'error' | 'info' = 'info'): void {
+    this.snackbar.show("Data saved successfully at this point in time because it succeed in its success", type, 3000);
   }
 }
