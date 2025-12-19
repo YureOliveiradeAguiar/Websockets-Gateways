@@ -7,7 +7,9 @@ import { ItemsService } from "@services/item.service";
 import { ItemsSocketService } from "@services/items-socket.service";
 
 import { InputField } from "src/app/components/input-field/input-field";
-import { SegmentedInput, SegmentedOption } from "src/app/components/segmented-input/segmented-input";
+import {
+  SegmentedInput, SegmentedOption
+} from "src/app/components/segmented-control-field/segmented-control";
 import { SnackbarService } from "src/app/components/snackbar/snackbar.service";
 import { Toggle } from "src/app/components/toggle/toggle";
 

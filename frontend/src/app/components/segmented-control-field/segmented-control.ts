@@ -12,8 +12,8 @@ export interface SegmentedOption<T = any> {
 
 @Component({
   selector: 'segmented-control',
-  templateUrl: './segmented-input.html',
-  styleUrls: ['./segmented-input.scss'],
+  templateUrl: './segmented-control.html',
+  styleUrls: ['./segmented-control.scss'],
   imports: [CommonModule],
   providers: [
     {
