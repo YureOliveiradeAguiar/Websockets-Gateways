@@ -2,7 +2,7 @@ import { Routes } from "@angular/router";
 import { ItemForm } from "@pages/item-form/item-form";
 import { Items } from "@pages/items/items";
 
-import { PageBase } from "./components/page-base/page-base";
+import { PageBase } from "./page-base/page-base";
 
 export const routes: Routes = [
   {

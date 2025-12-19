@@ -6,9 +6,8 @@
   />
 
   <segmented-control
-    [options]="itemQualities"
-    [value]="itemQuality"
-    (valueChanged)="itemQuality = $event"
+    formControlName="size"
+    [options]="petSizes"
   />
 
   <div class="form-group">
@@ -37,7 +36,8 @@
 </form>
 
 
-<span>itemType: {{itemQuality}}</span>
+<span>size: {{size}}</span>
 <span>isPremium: {{isPremium}}</span>
 <button (click)="test()">test form</button>
 <span>name = {{name?.value}}</span>
+<span>size = {{size?.value}}</span>

@@ -16,13 +16,11 @@
       class="segment"
       [class.active-text]="value === option.value"
       [disabled]="disabled"
-      (click)="onOptionClick(option.value)"
+      (click)="select(option.value)"
     >
       {{ option.label }}
     </button>
     }
-
-
   </div>
 
   <p class="blank-message"></p>

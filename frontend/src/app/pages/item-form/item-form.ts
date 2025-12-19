@@ -7,9 +7,7 @@ import { ItemsService } from "@services/item.service";
 import { ItemsSocketService } from "@services/items-socket.service";
 
 import { InputField } from "src/app/components/input-field/input-field";
-import {
-  SegmentedControl, SegmentedControlOption
-} from "src/app/components/segmented-control/segmented-control";
+import { SegmentedInput, SegmentedOption } from "src/app/components/segmented-input/segmented-input";
 import { SnackbarService } from "src/app/components/snackbar/snackbar.service";
 import { Toggle } from "src/app/components/toggle/toggle";
 
@@ -19,17 +17,15 @@ import { nameValidator } from "./item.validators";
   selector: 'item-form',
   templateUrl: './item-form.html',
   styleUrl: './item-form.scss',
-  imports: [ReactiveFormsModule, RouterLink, SegmentedControl, Toggle, CommonModule, InputField],
+  imports: [ReactiveFormsModule, RouterLink, SegmentedInput, Toggle, CommonModule, InputField],
 })
 export class ItemForm implements OnInit {
 
-  itemQualities: SegmentedControlOption[]= [
-    {label:"low", value: "low"},
-    {label:"medium", value: "medium"},
-    {label:"high", value: "high"}
+  petSizes: SegmentedOption[]= [
+    { label:"small", value: "small" },
+    { label:"medium", value: "medium" },
+    { label:"large", value: "large" }
   ];
-
-  itemQuality = "low";
 
   isPremium: boolean = false;
 
@@ -47,6 +43,7 @@ export class ItemForm implements OnInit {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       name: ['', nameValidator()],
+      size: ['medium'],
       description: ['', Validators.required],
     });
 
@@ -76,6 +73,10 @@ export class ItemForm implements OnInit {
 
   get name(): AbstractControl<any, any, any> | null {
     return this.formGroup.get('name');
+  }
+
+  get size(): AbstractControl<any, any, any> | null {
+    return this.formGroup.get('size');
   }
 
   submit() {
