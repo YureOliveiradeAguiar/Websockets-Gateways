@@ -30,9 +30,9 @@ export class ItemsSocketService {
     });
   }
 
-  onItemDeleted(): Observable<number> {
+  onItemDeleted(): Observable<string> {
     return new Observable((observer) => {
-      this.socket.on('itemDeleted', (id: number) => {
+      this.socket.on('itemDeleted', (id: string) => {
         observer.next(id);
       });
     });

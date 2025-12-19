@@ -28,13 +28,28 @@
   border-radius: 8px;
   width: 100%;
   cursor: pointer;
+
+  & .edit-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0.4rem;
+    background-color: #777;
+    color: white;
+    padding: 0.12rem;
+    border-radius: 4px;
+    opacity: 0.3;
+  }
 }
 
 .card-name {
   font-weight: 700;
 }
 
-.icon-wrapper {
+.delete-button {
   position: absolute;
   display: flex;
   align-items: center;
@@ -42,9 +57,11 @@
   top: 50%;
   transform: translateY(-50%);
   right: 0.5rem;
-  padding: 0.1rem;
+  padding: 0.2rem;
   border-radius: 50%;
-  color: #999;
+  color: crimson;
+  opacity: 0.7;
+  border: none;
 }
 
 //==============Pagination==============

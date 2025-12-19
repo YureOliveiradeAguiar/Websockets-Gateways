@@ -5,20 +5,6 @@
     placeholder="Enter your name"
   />
 
-  <segmented-control
-    formControlName="size"
-    [options]="petSizes"
-  />
-
-  <div class="form-group">
-    <app-toggle
-      label="Premium Features Enabling"
-      [checked]="isPremium"
-      (checkedChanged)="isPremium = $event"
-      [disabled]="false">
-    </app-toggle>
-  </div>
-
   <div class="form-group">
     <textarea
       id="description"
@@ -34,10 +20,3 @@
     <button type="submit" [disabled]="formGroup.invalid">Register</button>
   </section>
 </form>
-
-
-<span>size: {{size}}</span>
-<span>isPremium: {{isPremium}}</span>
-<button (click)="test()">test form</button>
-<span>name = {{name?.value}}</span>
-<span>size = {{size?.value}}</span>

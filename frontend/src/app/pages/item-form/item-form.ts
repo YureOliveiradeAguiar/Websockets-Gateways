@@ -7,11 +7,7 @@ import { ItemsService } from "@services/item.service";
 import { ItemsSocketService } from "@services/items-socket.service";
 
 import { InputField } from "src/app/components/input-field/input-field";
-import {
-  SegmentedInput, SegmentedOption
-} from "src/app/components/segmented-control-field/segmented-control";
 import { SnackbarService } from "src/app/components/snackbar/snackbar.service";
-import { Toggle } from "src/app/components/toggle/toggle";
 
 import { nameValidator } from "./item.validators";
 
@@ -19,17 +15,9 @@ import { nameValidator } from "./item.validators";
   selector: 'item-form',
   templateUrl: './item-form.html',
   styleUrl: './item-form.scss',
-  imports: [ReactiveFormsModule, RouterLink, SegmentedInput, Toggle, CommonModule, InputField],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule, InputField],
 })
 export class ItemForm implements OnInit {
-
-  petSizes: SegmentedOption[]= [
-    { label:"small", value: "small" },
-    { label:"medium", value: "medium" },
-    { label:"large", value: "large" }
-  ];
-
-  isPremium: boolean = false;
 
   formGroup!: FormGroup;
 
@@ -45,7 +33,6 @@ export class ItemForm implements OnInit {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       name: ['', nameValidator()],
-      size: ['medium'],
       description: ['', Validators.required],
     });
 
