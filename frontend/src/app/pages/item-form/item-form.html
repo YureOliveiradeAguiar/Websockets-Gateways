@@ -1,19 +1,9 @@
-<button (click)="test('success')" style="margin-top: 25rem;">Test Snackbar</button>
-<button (click)="test('warning')">Test Snackbar</button>
-<button (click)="test('error')">Test Snackbar</button>
-<button (click)="test('info')">Test Snackbar</button>
-
-
-<form [formGroup]="itemForm" (ngSubmit)="submit()" class="form">
-  <div class="form-group">
-    <input
-      id="name"
-      formControlName="name"
-      class="form-input"
-      placeholder=""
-    />
-    <label for="name" class="form-label">Name</label>
-  </div>
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="form">
+  <input-field
+    formControlName="name"
+    label="Name"
+    placeholder="Enter your name"
+  />
 
   <segmented-control
     [options]="itemQualities"
@@ -42,9 +32,12 @@
 
   <section class="button-section">
     <button routerLink="/items/" class="return">Return</button>
-    <button type="submit" [disabled]="itemForm.invalid">Register</button>
+    <button type="submit" [disabled]="formGroup.invalid">Register</button>
   </section>
 </form>
 
+
 <span>itemType: {{itemQuality}}</span>
 <span>isPremium: {{isPremium}}</span>
+<button (click)="test()">test form</button>
+<span>name = {{name?.value}}</span>

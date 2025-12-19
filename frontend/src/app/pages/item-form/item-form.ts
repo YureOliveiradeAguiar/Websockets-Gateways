@@ -1,21 +1,25 @@
+import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 import { Item } from "@models/item.model";
 import { ItemsService } from "@services/item.service";
 import { ItemsSocketService } from "@services/items-socket.service";
 
+import { InputField } from "src/app/components/input-field/input-field";
 import {
   SegmentedControl, SegmentedControlOption
 } from "src/app/components/segmented-control/segmented-control";
 import { SnackbarService } from "src/app/components/snackbar/snackbar.service";
 import { Toggle } from "src/app/components/toggle/toggle";
 
+import { nameValidator } from "./item.validators";
+
 @Component({
   selector: 'item-form',
   templateUrl: './item-form.html',
   styleUrl: './item-form.scss',
-  imports: [ReactiveFormsModule, RouterLink, SegmentedControl, Toggle],
+  imports: [ReactiveFormsModule, RouterLink, SegmentedControl, Toggle, CommonModule, InputField],
 })
 export class ItemForm implements OnInit {
 
@@ -29,7 +33,7 @@ export class ItemForm implements OnInit {
 
   isPremium: boolean = false;
 
-  itemForm!: FormGroup;
+  formGroup!: FormGroup;
 
   items: Item[] = [];
 
@@ -41,10 +45,12 @@ export class ItemForm implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.itemForm = this.formBuilder.group({
-      name: ['', Validators.required],
+    this.formGroup = this.formBuilder.group({
+      name: ['', nameValidator()],
       description: ['', Validators.required],
     });
+
+    //console.log (this.formGroup);
 
     // Loads initial state via HTTP
     this.itemsService.getAll().subscribe((items) => {
@@ -68,17 +74,32 @@ export class ItemForm implements OnInit {
     });
   }
 
-  submit() {
-    if (this.itemForm.invalid) return;
+  get name(): AbstractControl<any, any, any> | null {
+    return this.formGroup.get('name');
+  }
 
-    this.itemsService.create(this.itemForm.value).subscribe({
+  submit() {
+    if (this.formGroup.invalid) return;
+
+    this.formGroup.markAllAsTouched();
+
+    this.itemsService.create(this.formGroup.value).subscribe({
       next: () => {
-        this.itemForm.reset();
+        this.formGroup.reset();
+        this.snackbar.show("Item created with success", 'success', 3000);
       },
+      error: (err) => {
+        //console.log(err);
+        if (err.status === 400) {
+          this.snackbar.show("Data is invalid", 'warning', 5000);
+        } else {
+          this.snackbar.show("Failed to communicate with the server", 'error', 5000);
+        }
+      }
     });
   }
 
-  test(type: 'success' | 'warning' | 'error' | 'info' = 'info'): void {
-    this.snackbar.show("Data saved successfully at this point in time because it succeed in its success", type, 3000);
+  test(): void {
+    console.log(this.formGroup);
   }
 }

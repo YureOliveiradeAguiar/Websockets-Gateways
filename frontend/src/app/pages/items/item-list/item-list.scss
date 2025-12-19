@@ -1,11 +1,12 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 320px;
   height: 100%;
 }
 .list {
   height: 100%;
+  width: 100%;
 
   & .list-message {
     display: inline-flex;
